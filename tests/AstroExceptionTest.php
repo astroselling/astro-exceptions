@@ -46,14 +46,14 @@ it('reports known exception to CloudWatch', function () {
     $exception = new AstroException(new Exception('Test exception'), [], AstroExceptionTypeEnum::KNOWN);
     $result = $exception->report();
 
-    expect($result)->toBeFalse();
+    expect($result)->toBeTrue();
 });
 
 it('does not report unknown exception to CloudWatch', function () {
     $exception = new AstroException(new Exception('Test exception'));
     $result = $exception->report();
 
-    expect($result)->toBeTrue();
+    expect($result)->toBeFalse();
 });
 
 it('renders json response', function () {
