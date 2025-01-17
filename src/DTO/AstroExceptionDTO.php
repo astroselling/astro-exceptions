@@ -25,6 +25,7 @@ class AstroExceptionDTO
         $this->integrationErrorCode = (int) $exception->getCode();
         $this->integrationType = $exception->getType();
         $this->selfErrorCode = $exception->getType() === AstroExceptionTypeEnum::KNOWN ? 424 : 500;
+
         return $this;
     }
 
