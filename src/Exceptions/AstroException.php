@@ -93,7 +93,7 @@ class AstroException extends Exception
 
     public function render(): JsonResponse
     {
-        return (new AstroExceptionDTO($this))->toResponse();
+        return (new AstroExceptionDTO)->fromException($this)->toResponse();
     }
 
     private function reportToCloudWatch(): void

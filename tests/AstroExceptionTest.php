@@ -75,7 +75,7 @@ it('does not report unknown exception to CloudWatch', function () {
 
 it('renders json unknown response', function () {
     $exception = new AstroException(new Exception('Test exception'));
-    $dto = (new AstroExceptionDTO($exception));
+    $dto = (new AstroExceptionDTO)->fromException($exception);
 
     $response = $exception->render();
 
@@ -86,7 +86,7 @@ it('renders json unknown response', function () {
 
 it('renders json known response', function () {
     $exception = new AstroException(new Exception('Test exception'), [], AstroExceptionTypeEnum::KNOWN, 'tiendaNube');
-    $dto = (new AstroExceptionDTO($exception));
+    $dto = (new AstroExceptionDTO)->fromException($exception);
 
     $response = $exception->render();
 
