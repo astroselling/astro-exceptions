@@ -6,13 +6,16 @@ use Astroselling\AstroExceptions\Enums\AstroExceptionTypeEnum;
 use Astroselling\AstroExceptions\Exceptions\AstroException;
 use Illuminate\Http\JsonResponse;
 
-
 class AstroExceptionDTO
 {
     protected string $integrationName;
+
     protected string $integrationMessage;
+
     protected int $integrationErrorCode;
+
     protected AstroExceptionTypeEnum $integrationType;
+
     protected int $selfErrorCode;
 
     public function __construct(AstroException $exception)
@@ -42,6 +45,7 @@ class AstroExceptionDTO
         $this->integrationMessage = $response['integration_message'];
         $this->integrationType = $response['integration_type'];
         $this->selfErrorCode = $response['self_error_code'];
+
         return $this;
     }
 

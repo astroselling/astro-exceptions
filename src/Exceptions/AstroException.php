@@ -21,7 +21,6 @@ class AstroException extends Exception
 
     protected string $integrationName;
 
-
     /**
      * @param  array<string, mixed>|null  $context
      */
@@ -50,13 +49,10 @@ class AstroException extends Exception
         return $this;
     }
 
-    /**
-     * @param array $array
-     * @return AstroException
-     */
     public function addContexts(array $array): self
     {
         $this->context += $array;
+
         return $this;
     }
 
@@ -80,6 +76,7 @@ class AstroException extends Exception
     public function setIntegrationName(string $integrationName): self
     {
         $this->integrationName = $integrationName;
+
         return $this;
     }
 
@@ -87,8 +84,10 @@ class AstroException extends Exception
     {
         if ($this->type === AstroExceptionTypeEnum::KNOWN) {
             $this->reportToCloudWatch();
+
             return true;
         }
+
         return false;
     }
 
