@@ -86,6 +86,7 @@ class AstroException extends Exception
 
         if ($this->type === AstroExceptionTypeEnum::KNOWN) {
             $this->reportToCloudWatch();
+
             return true;
         }
 
