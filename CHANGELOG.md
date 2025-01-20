@@ -2,6 +2,10 @@
 
 All notable changes to `astro-exceptions` will be documented in this file.
 
+## 0.0.1-beta.5 - 2025-01-20
+
+Renombra error type en DTO.
+
 ## 0.0.1-beta.4 - 2025-01-17
 
 * Agrega DTO.
