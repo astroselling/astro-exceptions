@@ -82,9 +82,10 @@ class AstroException extends Exception
 
     public function report(): bool
     {
+        $this->addContexts((new AstroExceptionDTO)->fromException($this)->toArray());
+
         if ($this->type === AstroExceptionTypeEnum::KNOWN) {
             $this->reportToCloudWatch();
-
             return true;
         }
 

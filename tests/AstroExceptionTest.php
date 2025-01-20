@@ -62,8 +62,9 @@ it('reports known exception to CloudWatch', function () {
 
     $exception = new AstroException(new Exception('Test exception'), [], AstroExceptionTypeEnum::KNOWN);
     $result = $exception->report();
+    $dto = (new AstroExceptionDTO)->fromException($exception);
 
-    expect($result)->toBeTrue();
+    expect($result)->toBeTrue()->and($exception->getContext())->toHaveKeys(array_keys($dto->toArray()));
 });
 
 it('does not report unknown exception to CloudWatch', function () {
