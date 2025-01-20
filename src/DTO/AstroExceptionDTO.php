@@ -14,7 +14,7 @@ class AstroExceptionDTO
 
     protected int $integrationErrorCode = 0;
 
-    protected AstroExceptionTypeEnum $integrationType = AstroExceptionTypeEnum::UNKNOWN;
+    protected AstroExceptionTypeEnum $errorType = AstroExceptionTypeEnum::UNKNOWN;
 
     protected int $selfErrorCode = 500;
 
@@ -23,7 +23,7 @@ class AstroExceptionDTO
         $this->integrationName = $exception->getIntegrationName();
         $this->integrationMessage = $exception->getMessage();
         $this->integrationErrorCode = (int) $exception->getCode();
-        $this->integrationType = $exception->getType();
+        $this->errorType = $exception->getType();
         $this->selfErrorCode = $exception->getType() === AstroExceptionTypeEnum::KNOWN ? 424 : 500;
 
         return $this;
@@ -34,7 +34,7 @@ class AstroExceptionDTO
         $this->integrationErrorCode = $response['integration_error_code'];
         $this->integrationName = $response['integration_name'];
         $this->integrationMessage = $response['integration_message'];
-        $this->integrationType = AstroExceptionTypeEnum::from($response['integration_type']);
+        $this->errorType = AstroExceptionTypeEnum::from($response['error_type']);
         $this->selfErrorCode = $response['self_error_code'];
 
         return $this;
@@ -51,7 +51,7 @@ class AstroExceptionDTO
             'integration_name' => $this->integrationName,
             'integration_message' => $this->integrationMessage,
             'integration_error_code' => $this->integrationErrorCode,
-            'integration_type' => $this->integrationType->value,
+            'error_type' => $this->errorType->value,
             'self_error_code' => $this->selfErrorCode,
         ];
     }
