@@ -1,7 +1,7 @@
 <?php
 
-use Astroselling\AstroExceptions\Exceptions\AstroException;
 use Astroselling\AstroExceptions\Enums\AstroExceptionTypeEnum;
+use Astroselling\AstroExceptions\Exceptions\AstroException;
 use Illuminate\Support\Facades\Log;
 
 it('configures CloudWatch logging when driver is cloudwatch', function () {
