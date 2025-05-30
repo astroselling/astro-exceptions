@@ -85,7 +85,7 @@ class AstroException extends Exception
         $this->addContexts((new AstroExceptionDTO)->fromException($this)->toArray());
 
         if ($this->type === AstroExceptionTypeEnum::KNOWN) {
-            $this->reportToCloudWatch();
+            $this->reportToLogChannel();
 
             return true;
         }
@@ -98,7 +98,7 @@ class AstroException extends Exception
         return (new AstroExceptionDTO)->fromException($this)->toResponse();
     }
 
-    private function reportToCloudWatch(): void
+    private function reportToLogChannel(): void
     {
         try {
             Log::channel(config('astro-exceptions.channels.errors', 'errors'))

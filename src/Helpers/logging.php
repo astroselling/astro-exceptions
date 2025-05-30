@@ -1,6 +1,7 @@
 <?php
 
 use Astroselling\LaravelCloudwatchLogging\CloudWatchLoggerFactory;
+use Jplhomer\Axiom\AxiomLogHandler;
 
 if (! function_exists('getCloudWatchLogConfig')) {
     /**
@@ -24,6 +25,26 @@ if (! function_exists('getCloudWatchLogConfig')) {
             'retention' => $retention ?? env('CLOUDWATCH_LOG_RETENTION', 14),
             'level' => $level ?? env('CLOUDWATCH_LOG_LEVEL', env('LOG_LEVEL', 'debug')),
             'batch_size' => $batchSize ?? env('CLOUDWATCH_BATCH_SIZE', 1000),
+        ];
+    }
+}
+
+if (! function_exists('getAxiomLogConfig')) {
+    /**
+     * @return string[]
+     */
+    function getAxiomLogConfig(string $dataset, ?string $token = null, ?string $level = null): array
+    {
+        return [
+            'driver' => 'monolog',
+            'handler' => AxiomLogHandler::class,
+            'token' => $token ?? env('AXIOM_TOKEN'),
+            'dataset' => $dataset,
+            'level' => $level ?? env('AXIOM_LOG_LEVEL', env('LOG_LEVEL', 'debug')),
+            'with' => [
+                'apiToken' => env('AXIOM_API_TOKEN'),
+                'dataset' => env('AXIOM_DATASET'),
+            ],
         ];
     }
 }

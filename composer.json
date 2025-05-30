@@ -19,6 +19,7 @@
         "php": "^8.2",
         "astroselling/laravel-cloudwatch-logging": "^1.0",
         "illuminate/contracts": "^10.0||^11.0",
+        "jplhomer/laravel-axiom": "^1.1",
         "sentry/sentry-laravel": "^4.7",
         "spatie/laravel-package-tools": "^1.16"
     },
