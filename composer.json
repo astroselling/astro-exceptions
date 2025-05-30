@@ -17,13 +17,17 @@
     ],
     "require": {
         "php": "^8.2",
-        "astroselling/laravel-cloudwatch-logging": "^1.0",
         "illuminate/contracts": "^10.0||^11.0",
-        "jplhomer/laravel-axiom": "^1.1",
         "sentry/sentry-laravel": "^4.7",
         "spatie/laravel-package-tools": "^1.16"
     },
+    "suggest": {
+        "astroselling/laravel-cloudwatch-logging": "Required for CloudWatch logging integration",
+        "jplhomer/laravel-axiom": "Required for Axiom logging integration"
+    },
     "require-dev": {
+        "astroselling/laravel-cloudwatch-logging": "^1.0",
+        "jplhomer/laravel-axiom": "^1.1",
         "larastan/larastan": "^2.9",
         "laravel/pint": "^1.14",
         "nunomaduro/collision": "^8.1.1||^7.10.0",

@@ -1,17 +1,20 @@
 <?php
 
-use Astroselling\LaravelCloudwatchLogging\CloudWatchLoggerFactory;
-use Jplhomer\Axiom\AxiomLogHandler;
-
 if (! function_exists('getCloudWatchLogConfig')) {
     /**
      * @return string[]
      */
     function getCloudWatchLogConfig(string $streamName, ?int $retention = null, ?string $level = null, ?int $batchSize = null): array
     {
+        $cloudwatchLoggerFactory = 'Astroselling\LaravelCloudwatchLogging\CloudWatchLoggerFactory';
+
+        if (!class_exists($cloudwatchLoggerFactory)) {
+            throw new \Exception('CloudWatch logging is not available.');
+        }
+
         return [
             'driver' => 'custom',
-            'via' => CloudWatchLoggerFactory::class,
+            'via' => $cloudwatchLoggerFactory,
             'name' => config('app.name'),
             'sdk' => [
                 'region' => env('AWS_DEFAULT_REGION', 'sa-east-1'),
@@ -35,9 +38,15 @@ if (! function_exists('getAxiomLogConfig')) {
      */
     function getAxiomLogConfig(string $dataset, ?string $token = null, ?string $level = null): array
     {
+        $axiomLogHandler = 'Jplhomer\Axiom\AxiomLogHandler';
+
+        if (!class_exists($axiomLogHandler)) {
+            throw new \Exception('Axiom logging is not available.');
+        }
+
         return [
             'driver' => 'monolog',
-            'handler' => AxiomLogHandler::class,
+            'handler' => $axiomLogHandler,
             'token' => $token ?? env('AXIOM_TOKEN'),
             'dataset' => $dataset,
             'level' => $level ?? env('AXIOM_LOG_LEVEL', env('LOG_LEVEL', 'debug')),
