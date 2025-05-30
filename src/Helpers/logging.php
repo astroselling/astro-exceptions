@@ -8,7 +8,7 @@ if (! function_exists('getCloudWatchLogConfig')) {
     {
         $cloudwatchLoggerFactory = 'Astroselling\LaravelCloudwatchLogging\CloudWatchLoggerFactory';
 
-        if (!class_exists($cloudwatchLoggerFactory)) {
+        if (! class_exists($cloudwatchLoggerFactory)) {
             throw new \Exception('CloudWatch logging is not available.');
         }
 
@@ -40,7 +40,7 @@ if (! function_exists('getAxiomLogConfig')) {
     {
         $axiomLogHandler = 'Jplhomer\Axiom\AxiomLogHandler';
 
-        if (!class_exists($axiomLogHandler)) {
+        if (! class_exists($axiomLogHandler)) {
             throw new \Exception('Axiom logging is not available.');
         }
 
