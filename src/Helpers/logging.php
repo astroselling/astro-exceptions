@@ -52,7 +52,7 @@ if (! function_exists('getAxiomLogConfig')) {
             'level' => $level ?? env('AXIOM_LOG_LEVEL', env('LOG_LEVEL', 'debug')),
             'with' => [
                 'apiToken' => env('AXIOM_API_TOKEN'),
-                'dataset' => env('AXIOM_DATASET'),
+                'dataset' => $dataset,
             ],
         ];
     }
