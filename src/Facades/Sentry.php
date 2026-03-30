@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Facade;
 use Sentry\State\HubInterface;
 
 /**
- * @see \Sentry\State\HubInterface
+ * @see HubInterface
  *
  * @method static \Sentry\ClientInterface|null getClient()
  * @method static \Sentry\EventId|null getLastEventId()
