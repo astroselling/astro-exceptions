@@ -2,14 +2,14 @@
 
 if (! function_exists('getCloudWatchLogConfig')) {
     /**
-     * @return string[]
+     * @return array<string, mixed>
      */
     function getCloudWatchLogConfig(string $streamName, ?int $retention = null, ?string $level = null, ?int $batchSize = null): array
     {
         $cloudwatchLoggerFactory = 'Astroselling\LaravelCloudwatchLogging\CloudWatchLoggerFactory';
 
         if (! class_exists($cloudwatchLoggerFactory)) {
-            throw new \Exception('CloudWatch logging is not available.');
+            throw new Exception('CloudWatch logging is not available.');
         }
 
         return [
@@ -34,14 +34,14 @@ if (! function_exists('getCloudWatchLogConfig')) {
 
 if (! function_exists('getAxiomLogConfig')) {
     /**
-     * @return string[]
+     * @return array<string, mixed>
      */
     function getAxiomLogConfig(string $dataset, ?string $token = null, ?string $level = null): array
     {
         $axiomLogHandler = 'Jplhomer\Axiom\AxiomLogHandler';
 
         if (! class_exists($axiomLogHandler)) {
-            throw new \Exception('Axiom logging is not available.');
+            throw new Exception('Axiom logging is not available.');
         }
 
         return [

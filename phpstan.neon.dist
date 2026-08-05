@@ -9,3 +9,10 @@ parameters:
     tmpDir: build/phpstan
     checkOctaneCompatibility: true
     checkModelProperties: true
+    # Al declarar configDirectories se reemplaza el default de larastan
+    # (config_path()), por eso hay que listar el config/ del paquete.
+    # Los helpers de logging se invocan desde el config/logging.php de la app
+    # que instala el paquete, así que env() también es válido dentro de ellos.
+    configDirectories:
+        - config
+        - src/Helpers

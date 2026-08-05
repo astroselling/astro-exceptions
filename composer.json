@@ -16,10 +16,9 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "illuminate/contracts": "^10.0||^11.0|^12.0",
-        "sentry/sentry-laravel": "^4.7",
-        "spatie/laravel-package-tools": "^1.16"
+        "php": "^8.3",
+        "illuminate/contracts": "^11.0||^12.0||^13.0",
+        "spatie/laravel-package-tools": "^1.93"
     },
     "suggest": {
         "astroselling/laravel-cloudwatch-logging": "Required for CloudWatch logging integration",
@@ -27,17 +26,17 @@
     },
     "require-dev": {
         "astroselling/laravel-cloudwatch-logging": "^1.0",
-        "jplhomer/laravel-axiom": "^1.1",
-        "larastan/larastan": "^2.9",
-        "laravel/pint": "^1.14",
-        "nunomaduro/collision": "^8.1.1||^7.10.0",
-        "orchestra/testbench": "^9.0.0||^8.22.0",
-        "pestphp/pest": "^2.34",
-        "pestphp/pest-plugin-arch": "^2.7",
-        "pestphp/pest-plugin-laravel": "^2.3",
-        "phpstan/extension-installer": "^1.3",
-        "phpstan/phpstan-deprecation-rules": "^1.1",
-        "phpstan/phpstan-phpunit": "^1.3"
+        "jplhomer/laravel-axiom": "^1.2",
+        "larastan/larastan": "^3.10",
+        "laravel/pint": "^1.30",
+        "nunomaduro/collision": "^8.9.5",
+        "orchestra/testbench": "^11.1||^10.11||^9.17",
+        "pestphp/pest": "^4.7",
+        "pestphp/pest-plugin-arch": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.1",
+        "phpstan/extension-installer": "^1.4",
+        "phpstan/phpstan-deprecation-rules": "^2.0",
+        "phpstan/phpstan-phpunit": "^2.0"
     },
     "autoload": {
         "psr-4": {
@@ -80,10 +79,7 @@
         "laravel": {
             "providers": [
                 "Astroselling\\AstroExceptions\\AstroExceptionsServiceProvider"
-            ],
-            "aliases": {
-                "Sentry": "Astroselling\\AstroExceptions\\Facades\\Sentry"
-            }
+            ]
         }
     },
     "minimum-stability": "dev",

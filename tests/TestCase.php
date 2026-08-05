@@ -5,7 +5,6 @@ namespace Astroselling\AstroExceptions\Tests;
 use Astroselling\AstroExceptions\AstroExceptionsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Sentry\Laravel\ServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -22,7 +21,6 @@ class TestCase extends Orchestra
     {
         return [
             AstroExceptionsServiceProvider::class,
-            ServiceProvider::class,
         ];
     }
 
